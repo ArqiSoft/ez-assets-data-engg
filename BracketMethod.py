@@ -1,6 +1,12 @@
 import json
+from time import sleep
+print('This is my code to isolate the individual Json objects, and input them to into a list to eventually be printed')
 
 def find_first_brace_pair(file_path):
+    print('Processing the first Json object...')
+    sleep(3)
+    print('This is how the first Json object looks')
+
     with open(file_path, 'r', encoding='utf-8') as f:
         opening_positions = []
         level = 0
@@ -28,7 +34,7 @@ def find_first_brace_pair(file_path):
 
 json_objects = []
 def extract_json_sections(file_path):
-    
+    print('However, when I run the code to iterate this process over the \n whole document I am getting this ValueError')
     with open(file_path, 'r', encoding='utf-8') as f:
         opening_positions = []
         level = 0
@@ -57,19 +63,19 @@ def extract_json_sections(file_path):
     return json_objects
 
 
-# Example usage:
-'''file_path = 'aggregated-properties.json'
-try:
-    formatted_json = find_first_brace_pair(file_path)
-    print(formatted_json)
-except ValueError as e:
-    print(e)'''
+def main():
+    file_path = 'aggregated-properties.json'
+    try:
+        formatted_json = find_first_brace_pair(file_path)
+        print(formatted_json)
+    except ValueError as e:
+        print(e)
+    try:
+        extracted_json_objects = extract_json_sections(file_path)
+        for obj in extracted_json_objects:
+            print(json.dumps(obj, indent=2))  # Print each JSON object in formatted JSON
+    except ValueError as e:
+        print(e)
 
-# Example usage:
-'''file_path = 'aggregated-properties.json'
-try:
-    extracted_json_objects = extract_json_sections(file_path)
-    for obj in extracted_json_objects:
-        print(json.dumps(obj, indent=2))  # Print each JSON object in formatted JSON
-except ValueError as e:
-    print(e)'''
+if __name__ == "__main__":
+    main()
