@@ -1,0 +1,274 @@
+{
+    "_index": "aggregated-properties",
+    "_type": "_doc",
+    "_id": "MjYtaG93YXJkLXN0LW5ldy1icml0YWluLWN0LTA2MDUx",
+    "_score": 1.0,
+    "_source": {
+        "id": "MjYtaG93YXJkLXN0LW5ldy1icml0YWluLWN0LTA2MDUx",
+        "propertyId": 53881277,
+        "listingId": 144261581,
+        "regionId": 12956,
+        "alias": "26-howard-st-new-britain-ct-06051",
+        "location": {
+            "id": "ca1b7d79-7cb2-416e-8fc5-6f0a33647c21",
+            "street": "26 Howard St",
+            "city": "New Britain",
+            "state": "CT",
+            "zipCode": "06051",
+            "coordinates": {
+                "lat": 41.6747639,
+                "lon": -72.7614177
+            },
+            "lng": -72.7614177,
+            "lat": 41.6747639
+        },
+        "status": "Off Market",
+        "yearBuilt": 1910,
+        "lotSize": 0,
+        "finished": 0,
+        "beds": 3,
+        "floorSpace": 1442,
+        "baths": 1.5,
+        "propertyTypeName": "Single Family Residential",
+        "dateScanned": "2022-01-28T22:01:19.4080208+00:00",
+        "dateUpdate": "2022-12-19T06:22:33.2257017+00:00",
+        "dateLastAnalysis": "2022-12-19T06:22:33.2250239+00:00",
+        "rentRange": {
+            "value": 1650,
+            "high": 1650,
+            "low": 1650
+        },
+        "assignedSchools": [
+            {
+                "id": 109814,
+                "location": {
+                    "id": "5cde7741-9212-406e-bcd5-ed01053d2c4b",
+                    "street": "272 Main Street",
+                    "city": "New Britain",
+                    "state": "CT",
+                    "zipCode": "06051",
+                    "coordinates": {
+                        "lat": 41.66804122924805,
+                        "lon": -72.78218841552734
+                    },
+                    "lng": -72.78218841552734,
+                    "lat": 41.66804122924805
+                },
+                "url": "https://www.greatschools.org/connecticut/new-britain/545-Chamberlain-School/",
+                "name": "Chamberlain Elementary School",
+                "district": "New Britain School District",
+                "categoriesList": [
+                    "ELEMENTARY"
+                ],
+                "categories": "ELEMENTARY",
+                "rating": 1,
+                "studentCount": 476
+            },
+            {
+                "id": 66456,
+                "location": {
+                    "id": "b412ee40-5723-4e88-bd22-4b0e32999d72",
+                    "street": "272 Main Street",
+                    "city": "New Britain",
+                    "state": "CT",
+                    "zipCode": "06051",
+                    "coordinates": {
+                        "lat": 41.66804122924805,
+                        "lon": -72.78218841552734
+                    },
+                    "lng": -72.78218841552734,
+                    "lat": 41.66804122924805
+                },
+                "url": "https://www.greatschools.org/connecticut/new-britain/552-Pulaski-Middle-School/",
+                "name": "Pulaski Middle School",
+                "district": "New Britain School District",
+                "categoriesList": [
+                    "MIDDLE"
+                ],
+                "categories": "MIDDLE",
+                "rating": 1,
+                "studentCount": 875
+            }
+        ],
+        "taxAssessment": {
+            "id": 0,
+            "year": 2021,
+            "amount": 78050.0,
+            "taxesDue": 3863.0
+        },
+        "analysis": {
+            "downPaymentPercent": 25.0,
+            "monthlyLoanPaymentAmount": 1258.06,
+            "closingCostsAmount": 7100.0,
+            "loanTermsYears": 30,
+            "interestRatePercent": 7.5,
+            "monthlyTaxAmount": 321.9166666666667,
+            "monthlyInsuranceAmount": 52.0,
+            "managementExpensePercent": 8.0,
+            "monthlyHoaAmount": 0.0,
+            "cashOnCashReturnPercent": -3.5150503168095417,
+            "rentRatioPercent": 0.6877865777407253,
+            "valueIncrease5Years": 45025.944724684115,
+            "internalRateOfReturnIn5YearsPercent": 2.755692915966026,
+            "capitalizationRatePercent": 5.31,
+            "vacancyAndMaintenancePercent": 5.0,
+            "monthlyCostAmount": 1846.4766666666667,
+            "monthlyCashFlowAmount": -196.47666666666666,
+            "taxRatePercent": 2.11,
+            "pricePerSqFtAmount": 0.0,
+            "neighborhoodRating": 0.5,
+            "rank": 0.15939798732761834,
+            "rehabCostsAmount": 0.0,
+            "hasError": false
+        },
+        "hoa": 0,
+        "homeInsuranceRate": 0.48,
+        "listingPrice": 239900,
+        "description": "HUD HOUSE IN NEW BRITAIN. COLONIAL STYLE WITH 3 BEDROOMS AND 2 FULL BATHROOMS. LARGE LIVING ROOM WITH ACCESS TO SIDE DECK AND BACK YARD. KITCHEN OPENING TO FORMAL DINING ROOM AND FAMILY ROOM. HARDWOOD FLOORS THROUGHOUT. FULL BATHROOM ON THE MAIN FLOOR. MASTERBEDROOM WITH WALL-TO-WALL CARPET AND PLENTY OF CLOSET SPACE. 2 BEDROOMS AND A FULL BATHROOM COMPLETE THE SECOND FLOOR. WALK-UP FINISHED ATTIC FOR EXTRA STORAGE. RECREATIONAL ROOM WITH OWN FIREPLACE IN THE LOWER LEVEL. ENCLOSED FRONT PORCH. GAS HEAT. ONE CAR DETACHED GARAGE AND MORE. SCHEDULE YOUR SHOWING TODAY!!! ",
+        "links": [
+            {
+                "url": "https://www.redfin.com/CT/New-Britain/26-Howard-St-06051/home/53881277",
+                "caption": "Redfin"
+            }
+        ],
+        "images": [
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_0.jpg",
+                "classes": [
+                    "good inside",
+                    "living room"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_1_0.jpg",
+                "classes": [
+                    "good outside"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_2_0.jpg",
+                "classes": [
+                    "good inside",
+                    "kitchen"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_3_0.jpg",
+                "classes": [
+                    "good inside",
+                    "kitchen"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_4_0.jpg",
+                "classes": [
+                    "good inside",
+                    "living room"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_5_0.jpg",
+                "classes": [
+                    "good inside",
+                    "living room"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_6_0.jpg",
+                "classes": [
+                    "good inside",
+                    "living room"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_7_0.jpg",
+                "classes": [
+                    "good inside",
+                    "living room"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_8_0.jpg",
+                "classes": [
+                    "good inside"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_9_0.jpg",
+                "classes": [
+                    "good inside",
+                    "bathroom"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_10_0.jpg",
+                "classes": [
+                    "good inside",
+                    "living room"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_11_0.jpg",
+                "classes": [
+                    "good inside",
+                    "living room"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_12_0.jpg",
+                "classes": [
+                    "good inside"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_13_0.jpg",
+                "classes": [
+                    "good inside",
+                    "bedroom"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_14_0.jpg",
+                "classes": [
+                    "good inside",
+                    "bedroom"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_15_0.jpg",
+                "classes": [
+                    "good inside",
+                    "kitchen"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_16_0.jpg",
+                "classes": [
+                    "good inside",
+                    "kitchen"
+                ]
+            },
+            {
+                "path": "photo%2F234%2Fbigphoto%2F299%2F170463299_17_0.jpg",
+                "classes": [
+                    "good inside",
+                    "bathroom"
+                ]
+            }
+        ],
+        "classes": [
+            "good"
+        ],
+        "zillow": {
+            "rent": 1650,
+            "zestimate": 151090
+        },
+        "manualMode": false,
+        "offMarket": false,
+        "verified": false,
+        "certified": false,
+        "locked": false,
+        "hasRegisteredRealtors": false,
+        "isNew": false
+    }
+}
