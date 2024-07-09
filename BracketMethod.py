@@ -40,7 +40,7 @@ def extract_json_sections(file_path):
                 break
     return json_objects, problematic_jsons
 
-def save_json_objects(json_objects, output_dir, objects_per_file=2000):
+def save_json_objects(json_objects, output_dir, objects_per_file=1800):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
@@ -84,7 +84,7 @@ def save_problematic_jsons(problematic_jsons, output_dir, objects_per_file=2000)
 
 
 def main():
-    file_path = 'aggregated-properties.json'
+    file_path = input("Enter the path of the JSON file you want to process: ")
     json_objects, problematic_jsons = extract_json_sections(file_path)
 
     output_directory = 'Parsed_Json'
