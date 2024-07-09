@@ -40,7 +40,7 @@ def extract_json_sections(file_path):
                 break
     return json_objects, problematic_jsons
 
-def save_json_objects(json_objects, output_dir, objects_per_file=1800):
+def save_json_objects(json_objects, output_dir, objects_per_file=1750):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 

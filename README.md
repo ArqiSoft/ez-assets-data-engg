@@ -2,7 +2,7 @@
 
 Data Engineering Experiments for ez-assets.com.
 
-This code will take a large Json file (encoding UTF-8 ) of Json objects and split it up into files containing 1,800 Json objects. 
+This code will take a large Json file (encoding UTF-8 ) of Json objects and split it up into files containing 1,750 Json objects. 
 
 It does this by reading your file and matching {} pairs and saving the data between them as a json object in an array.
 
