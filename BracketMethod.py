@@ -3,7 +3,7 @@ import os
 from time import sleep
 import sys
 
-print('This is my code to isolate the individual Json objects, and input them to into a list to eventually be printed')
+print('This code will isolate the individual Json objects, and input them to into a list to eventually be saved as as smaller files, and seporate the json objects that are still unformatted correctly')
 
 
 
@@ -40,26 +40,57 @@ def extract_json_sections(file_path):
                 break
     return json_objects, problematic_jsons
 
-def save_json_objects(json_objects, output_dir, objects_per_file=1750):
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
 
-    total_objects = len(json_objects)
-    num_files = (total_objects + objects_per_file - 1) // objects_per_file
+def save_json_objects(json_objects, output_dir, file_prefix, max_file_size_mb=20):
+    try:
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
 
-    print(f"Size of json_objects array: {total_objects}")
+        file_index = 1
+        current_file_size = 0
+        current_objects = []
+        file_size_limit = max_file_size_mb * 1024 * 1024  # Convert MB to bytes
 
-    for i in range(num_files):
-        start_index = i * objects_per_file
-        end_index = min(start_index + objects_per_file, total_objects)
-        chunk = json_objects[start_index:end_index]
-        
-        file_name = os.path.join(output_dir, f'json_objects_{i + 1}.json')
-        
-        with open(file_name, 'w', encoding='utf-8') as f:
-            json.dump(chunk, f, ensure_ascii=False, indent=4)
+        def save_current_objects():
+            nonlocal file_index, current_file_size, current_objects
+            if current_objects:
+                file_name = os.path.join(output_dir, f'{file_prefix}_{file_index}.json')
+                with open(file_name, 'w', encoding='utf-8') as f:
+                    json.dump(current_objects, f, ensure_ascii=False, indent=4)
+                print(f"Saved {len(current_objects)} JSON objects into {file_name} ({os.path.getsize(file_name) / (1024 * 1024):.2f} MB)")
+                file_index += 1
+                current_file_size = 0
+                current_objects = []
 
-    print(f"Saved {total_objects} JSON objects into {num_files} files.")
+        for obj in json_objects:
+            obj_str = json.dumps(obj, ensure_ascii=False, indent=4)
+            obj_size = len(obj_str.encode('utf-8'))
+
+            if current_file_size + obj_size > file_size_limit:
+                save_current_objects()
+            
+            current_objects.append(obj)
+            current_file_size += obj_size
+
+        # Save any remaining objects
+        save_current_objects()
+
+    except Exception as e:
+        print(f"An error occurred while saving {file_prefix} objects: {e}")
+def clean_problematic_jsons(problematic_jsons):
+    cleaned_json_objects = []
+    remaining_problematic_jsons = []
+
+    for json_str in problematic_jsons:
+        cleaned_str = json_str.replace('​​​&zwnj;', '')  # Remove zero-width non-joiners
+        try:
+            parsed_json = json.loads(cleaned_str)
+            cleaned_json_objects.append(parsed_json)
+        except json.JSONDecodeError:
+            remaining_problematic_jsons.append(cleaned_str)
+
+    return cleaned_json_objects, remaining_problematic_jsons
+
 
 def save_problematic_jsons(problematic_jsons, output_dir, objects_per_file=2000):
     if not os.path.exists(output_dir):
@@ -83,16 +114,24 @@ def save_problematic_jsons(problematic_jsons, output_dir, objects_per_file=2000)
     print(f"Saved {total_objects} problematic JSON objects into {num_files} files.")
 
 
+
 def main():
     file_path = input("Enter the path of the JSON file you want to process: ")
     json_objects, problematic_jsons = extract_json_sections(file_path)
 
-    output_directory = 'Parsed_Json'
-    save_json_objects(json_objects, output_directory)
+    output_dir = 'Parsed_Json'
+    save_json_objects(json_objects, output_dir,'json_objects')
 
     problematic_output_directory = 'Problematic_Json'
     save_problematic_jsons(problematic_jsons, problematic_output_directory)
-
+# Clean problematic JSONs
+    cleaned_json_objects, remaining_problematic_json_objects = clean_problematic_jsons(problematic_jsons)
+    
+    # Save cleaned JSON objects
+    save_json_objects(cleaned_json_objects, 'cleaned_json_objects', 'cleaned_jsons')
+    
+    # Save remaining problematic JSONs
+    save_json_objects(remaining_problematic_json_objects, 'remaining_problematic_jsons','still_problematic_jsons')
 if __name__ == "__main__":
     main()
 
