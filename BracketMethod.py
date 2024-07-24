@@ -126,35 +126,51 @@ def clean_problematic_jsons(problematic_jsons):
     return cleaned_json_objects, remaining_problematic_jsons
 
 
-def save_problematic_jsons(problematic_jsons, output_dir, objects_per_file=2000):
+def save_problematic_jsons(problematic_jsons, output_dir, max_file_size_mb=25):
     """
-    Save problematic JSON strings into files with a specified number of objects per file.
+    Save problematic JSON strings into files, each file's size limited to a specified maximum.
 
     Args:
         problematic_jsons (list): List of problematic JSON strings.
         output_dir (str): Directory to save problematic JSON files.
-        objects_per_file (int): Number of objects per output file.
+        max_file_size_mb (int): Maximum file size in megabytes.
     """
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    try:
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
 
-    total_objects = len(problematic_jsons)
-    num_files = (total_objects + objects_per_file - 1) // objects_per_file
+        file_index = 1
+        current_file_size = 0
+        current_objects = []
+        file_size_limit = max_file_size_mb * 1024 * 1024  # Convert MB to bytes
 
-    print(f"Size of problematic_jsons array: {total_objects}")
+        def save_current_objects():
+            nonlocal file_index, current_file_size, current_objects
+            if current_objects:
+                file_name = os.path.join(output_dir, f'problematic_jsons_{file_index}.json')
+                with open(file_name, 'w', encoding='utf-8') as f:
+                    json.dump(current_objects, f, ensure_ascii=False, indent=4)
+                print(f"Saved problematic JSON objects into {file_name} ({os.path.getsize(file_name) / (1024 * 1024):.2f} MB)")
+                file_index += 1
+                current_file_size = 0
+                current_objects = []
 
-    for i in range(num_files):
-        start_index = i * objects_per_file
-        end_index = min(start_index + objects_per_file, total_objects)
-        chunk = problematic_jsons[start_index:end_index]
-        
-        file_name = os.path.join(output_dir, f'problematic_jsons_{i + 1}.json')
-        
-        with open(file_name, 'w', encoding='utf-8') as f:
-            json.dump(chunk, f, ensure_ascii=False, indent=4)
+        # Iterate over problematic JSONs and save them into files
+        for obj in problematic_jsons:
+            obj_str = json.dumps(obj, ensure_ascii=False, indent=4)
+            obj_size = len(obj_str.encode('utf-8'))
 
-    print(f"Saved {total_objects} problematic JSON objects into {num_files} files.")
+            if current_file_size + obj_size > file_size_limit:
+                save_current_objects()
+            
+            current_objects.append(obj)
+            current_file_size += obj_size
 
+        # Save any remaining objects
+        save_current_objects()
+
+    except Exception as e:
+        print(f"An error occurred while saving problematic JSON objects: {e}")
 
 
 def main():
